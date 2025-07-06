@@ -47,3 +47,10 @@ o	Để thực hiện tính năng của Analytics của Firebase, cần cài đ�
 ### a.	Giới hạn về quy mô ứng dụng
 ### b.	Khả năng tùy chỉnh hạn chế
 ### c.	Bảo mật còn yếu
+
+# B. Công việc tiếp theo
+
+## 1. Đọc giá trị cảm biến ánh sáng
+## 2. Điều khiển led bằng giá trị cảm biến ánh sáng
+## 3. Cập nhật giá trị cảm biến ánh sáng lên Firebase
+## 4. Điều khiển led bằng Firebase web
