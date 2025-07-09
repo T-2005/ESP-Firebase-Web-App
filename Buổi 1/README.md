@@ -11,7 +11,7 @@
 
 o	Khi đăng ký tài khoản trên Firebase, sẽ nhận được Realtime Database được lưu trữ dưới dạng JSON và được đồng bộ hóa thời gian đối với mọi kết nối
 
-	JSON (JavaScrip Object Notation) là kiểu dữ liệu mở trong JavaScrip. Là 1 định dạng dữ liệu được sử dụng để lưu trữ và trao đổi dữ liệu. Nó cung
+		JSON (JavaScrip Object Notation) là kiểu dữ liệu mở trong JavaScrip. Là 1 định dạng dữ liệu được sử dụng để lưu trữ và trao đổi dữ liệu. Nó cung
 cấp 1 tập hợp dữ liệu có tổ chức và dễ truy cập.
 
 ### b.	Authentication
