@@ -10,7 +10,8 @@
 ### a.	Realtime Database
 
 o	Khi đăng ký tài khoản trên Firebase, sẽ nhận được Realtime Database được lưu trữ dưới dạng JSON và được đồng bộ hóa thời gian đối với mọi kết nối
-	JSON (JavaScrip Object Notation) là kiểu dữ liệu mở trong JavaScrip. Là 1 định dạng dữ liệu được sử dụng để lưu trữ và trao đổi dữ liệu. Nó cung cấp 1 tập hợp dữ liệu có tổ chức và dễ truy cập. Hiểu rõ về JSON là gì? Cách lấy dữ liệu từ JSON | TopDev
+	JSON (JavaScrip Object Notation) là kiểu dữ liệu mở trong JavaScrip. Là 1 định dạng dữ liệu được sử dụng để lưu trữ và trao đổi dữ liệu. Nó cung
+cấp 1 tập hợp dữ liệu có tổ chức và dễ truy cập. Hiểu rõ về JSON là gì? Cách lấy dữ liệu từ JSON | TopDev
 
 ### b.	Authentication
 
@@ -25,7 +26,9 @@ o	Giúp đồng bộ mọi dữ liệu trên các ứng dụng thông qua việc
 ### e.	Hosting
 
 o	Hosting được phân phối thông qua tiêu chuẩn SSI từ hệ thống mạng CDN
+
 o	CDN là một mạng lưới máy chủ giúp lưu trữ các bản sao của các nội dung tĩnh trên website
+
 o	Thông qua CDN, người dùng có thể truy cập và sử dụng các dịch vụ trên web khi cài Firebase Hosting một cách nhanh chóng và ổn định hơn
 ### f.	Cloud Functions
 
