@@ -14,6 +14,35 @@ o	Khi đăng ký tài khoản trên Firebase, sẽ nhận được Realtime Data
 	JSON (JavaScrip Object Notation) là kiểu dữ liệu mở trong JavaScrip. Là 1 định dạng dữ liệu được sử dụng để lưu trữ và trao đổi dữ liệu. Nó cung
 cấp 1 tập hợp dữ liệu có tổ chức và dễ truy cập.
 
+ 	Cấu trúc của JSON gồm 2 phần chính là key và value
+ 
+	Key: Là một chuỗi ký tự được đặt trong cặp dấu ngoặc kép và là tên của thuộc tính. Key được phân biệt hoa thường.
+	Value: Có thể là một trong các kiểu dữ liệu cơ bản trong JSON bao gồm: số, boolean, chuỗi hay null; hoặc là một đối tượng JSON, hoặc một mảng JSON.	
+	Các cặp key-value được đặt trong cặp dấu ngoặc nhọn {}, và các cặp key-value được ngăn cách nhau bởi dấu phẩy ,.
+	JSON hỗ trợ các đối tượng JSON lồng nhau và mảng JSON
+	
+	Ví dụ: 
+
+	{
+	  "name": "John Smith",
+	  "age": 35,
+	  "email": "john.smith@example.com",
+	  "address": {
+		"street": "123 Main St",
+		"city": "New York",
+		"state": "NY",
+		"zip": "10001"
+	  },
+	  "hobbies": ["reading", "running", "traveling"]
+	}
+
+Trong ví dụ này:
+
+	"name": "John Smith": định nghĩa tên.
+	"age": 35: định nghĩa tuổi.
+	"address": {...}: là một đối tượng lồng nhau với các thuộc tính street, city, state, và zip.
+	"hobbies": [...]: là một mảng chứa danh sách sở thích
+	
 ### b.	Authentication
 
 o	Giúp xác thực danh tính của người dùng ứng dụng. Firebase giúp xác thực danh tính qua email, Facebook, Twitter, GitHub, Google
