@@ -13,7 +13,7 @@
 ### Code điều khiển led bằng cảm biến ánh sàng
 	
 	digitalWrite(Led, value_of_light); // Led là chân nhận tín hiệu từ esp của led
-## 2. Gửi giá trị cảm biến ánh sáng lên Firebase-Web-App
+## 2. Thiết lập Firebase-Web-App với esp32
 ### a. Kết nối wifi
 - Định dạng tên wifi, password?
 	
@@ -107,3 +107,7 @@
 	#include<WiFi.h> // thiết lập wifi cho esp32
 	#include<FirebaseESP32.h> // thiết lập kết nội esp32 vs Firebase
 	#include <Adafruit_ST7735.h> // màn hình hiển thị oled
+
+# B. Công việc tiếp theo 
+
+### Điều khiển Led bằng Firebase Web 
