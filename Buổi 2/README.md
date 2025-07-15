@@ -2,7 +2,7 @@
 
 # A. Công việc đã làm
 ## 1. Đọc giá trị cảm biến ánh sáng và điều khiển led
-![alt](module_cam_bien_anh_sang.jpg)
+
 ###  Cách hoạt động của cảm biến ánh sáng?
 - Cảm biến ánh sáng nhận tín hiệu ánh sáng làm điều kiện 
 ### Cảm biến ánh sáng có mấy kiểu trả về?
