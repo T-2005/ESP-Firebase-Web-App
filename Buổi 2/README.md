@@ -2,8 +2,11 @@
 
 # A. Công việc đã làm
 ## 1. Đọc giá trị cảm biến ánh sáng và điều khiển led
-- Cách hoạt động của cảm biến ánh sáng?
-- Cảm biến ánh sáng có mấy kiểu trả về?
+[!alt](module_cam_bien_anh_sang.jpg)
+###  Cách hoạt động của cảm biến ánh sáng?
+- Cảm biến ánh sáng nhận tín hiệu ánh sáng làm điều kiện 
+### Cảm biến ánh sáng có mấy kiểu trả về?
+- Cảm biến ánh sáng có 2 kiểu trả về là digital(0 và 1) và analog( từ 0 -> 4095) 
 ## 2. Gửi giá trị cảm biến ánh sáng lên Firebase-Web-App
 ### a. Kết nối wifi
 - Định dạng tên wifi, password?

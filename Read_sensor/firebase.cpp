@@ -14,8 +14,10 @@ const char* password = "66668888";
 #define Firebase_Auth  "ex4GKoswbBLYjc0rtc4bWe5iZ5DZb9JBqkhI3F8Q"
 
 
-
+// tham số nhận giá trị từ firebase
 int data5base;
+
+// valiable to firebase from esp32
 const char* name_int = "/value_of_sensor_light";
 const char* name_day = "/day";
 
