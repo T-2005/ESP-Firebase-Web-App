@@ -34,13 +34,21 @@
 		FirebaseData fbData;
 		FirebaseAuth auth;
 		FirebaseConfig config;
+
+- Hàm thiết kết nối esp với Firebase
+	
+	 config.host = Firebase_Host ;
+	 config.signer.tokens.legacy_token = Firebase_Auth;
+	 Firebase.begin(&config, &auth);
+	 Firebase.reconnectWiFi(true);
 	
 - Định dạng host, auth?
 
-		
+		define Firebase_Host  "esp32-with-light-default-rtdb.firebaseio.com/" | -> lấy ở link địa chỉ Realtime Database
+		define Firebase_Auth  "ex4GKoswbBLYjc0rtc4bWe5iZ5DZb9JBqkhI3F8Q" | -> project setting -> service accounts -> Database secrets
 - Cách lấy link Host:
 	
-	define Firebase_Host  "esp32-with-light-default-rtdb.firebaseio.com/" | -> lấy ở link địa chỉ Realtime Database
+	
 
 + Bước 1: 
 ![alt](Host_b1.png)
@@ -54,7 +62,7 @@
 		
 - Cách lấy link Auth 
 
-	define Firebase_Auth  "ex4GKoswbBLYjc0rtc4bWe5iZ5DZb9JBqkhI3F8Q" | -> project setting -> service accounts -> Database secrets
+	
 
 + Bước 1:
 ![alt](Auth_b1.png)
@@ -72,8 +80,20 @@
 		config.api_key = "YOUR_API_KEY";
 		auth.user.email = "your@email.com";
 		auth.user.password = "yourpassword";
+
+## 3. Cập nhật giá trị cảm biến lên Firebase
 		
-## 3. Các lỗi có thể gặp phải khi thiết lập wifi và kết nối Firebase
+		void get_to_firebase_from_esp(int value)
+		{
+		   Firebase.setInt(fbData, name_int, value);
+		   if(value == 0) Firebase.setString(fbData,name_day, "Chao buoi sang!");
+		   else Firebase.setString(fbData,name_day, "Chao buoi toi!");
+			
+		  Serial.println("Push data to /esp done !");
+		   delay(500);
+		 }
+		 
+## 4. Các lỗi có thể gặp phải khi thiết lập wifi và kết nối Firebase
 
 ### a. wifi
 - Sai tên(ssid)
@@ -82,7 +102,7 @@
 - Sai khi khai báo toàn cục
 - Thư viện đổi mới, không cập nhập cú pháp liên kết 
 - Tìm hiểu lỗi từ "FirebaseConfig" là gì?
-## 4. Các thư viện cần dùng 
+## 5. Các thư viện cần dùng 
 	
 	#include<WiFi.h> // thiết lập wifi cho esp32
 	#include<FirebaseESP32.h> // thiết lập kết nội esp32 vs Firebase
