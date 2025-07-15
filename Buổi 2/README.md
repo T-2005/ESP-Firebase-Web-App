@@ -37,8 +37,11 @@
 	
 - Định dạng host, auth?
 
-		define Firebase_Host  "esp32-with-light-default-rtdb.firebaseio.com/" | -> lấy ở link địa chỉ Realtime Database
-- Cách lấy link Host, lưu ý bỏ phần "http://"
+		
+- Cách lấy link Host:
+	
+	define Firebase_Host  "esp32-with-light-default-rtdb.firebaseio.com/" | -> lấy ở link địa chỉ Realtime Database
+
 + Bước 1: 
 ![alt](Host_b1.png)
 + Bước 2:
@@ -47,9 +50,12 @@
 ![alt](Host_b3.png)
 + Bước 4:
 ![alt](Host_b4.png)
-
-		define Firebase_Auth  "ex4GKoswbBLYjc0rtc4bWe5iZ5DZb9JBqkhI3F8Q" | -> project setting -> service accounts -> Database secrets
++ lưu ý bỏ phần "http://"
+		
 - Cách lấy link Auth 
+
+	define Firebase_Auth  "ex4GKoswbBLYjc0rtc4bWe5iZ5DZb9JBqkhI3F8Q" | -> project setting -> service accounts -> Database secrets
+
 + Bước 1:
 ![alt](Auth_b1.png)
 + Bước 2:
