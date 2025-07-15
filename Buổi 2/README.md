@@ -37,10 +37,10 @@
 
 - Hàm thiết kết nối esp với Firebase
 	
-	 config.host = Firebase_Host ;
-	 config.signer.tokens.legacy_token = Firebase_Auth;
-	 Firebase.begin(&config, &auth);
-	 Firebase.reconnectWiFi(true);
+		 config.host = Firebase_Host ;
+		 config.signer.tokens.legacy_token = Firebase_Auth;
+		 Firebase.begin(&config, &auth);
+		 Firebase.reconnectWiFi(true);
 	
 - Định dạng host, auth?
 
