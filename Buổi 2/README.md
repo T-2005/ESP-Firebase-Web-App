@@ -3,7 +3,8 @@
 # A. Công việc đã làm
 
 ## Video demo sử dụng cảm biến ánh sáng điều khiển led và cập nhật dữ liệu lên firebase 
-![watch the video](video_demo.mp4)
+
+https://youtube.com/shorts/3hjuWiRp-ms
 ## 1. Đọc giá trị cảm biến ánh sáng và điều khiển led
 ![alt](module_cam_bien_anh_sang.jpg)
 ###  Cách hoạt động của cảm biến ánh sáng?
