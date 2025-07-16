@@ -1,6 +1,9 @@
 # ESP-Firebase-Web-App - LÊ NGỌC TUẤN
 
 # A. Công việc đã làm
+
+## Video demo sử dụng cảm biến ánh sáng điều khiển led và cập nhật dữ liệu lên firebase 
+![watch the video](video_demo.mp4)
 ## 1. Đọc giá trị cảm biến ánh sáng và điều khiển led
 ![alt](module_cam_bien_anh_sang.jpg)
 ###  Cách hoạt động của cảm biến ánh sáng?
@@ -107,7 +110,9 @@
 	#include<WiFi.h> // thiết lập wifi cho esp32
 	#include<FirebaseESP32.h> // thiết lập kết nội esp32 vs Firebase
 	#include <Adafruit_ST7735.h> // màn hình hiển thị oled
+## 6. Link hướng dẫn kết nối wifi và firebase với esp32
 
+	https://khuenguyencreator.com/giao-tiep-voi-realtime-database-firebase-su-dung-esp32-va-app/
 # B. Công việc tiếp theo 
 
 ### Điều khiển Led bằng Firebase Web 

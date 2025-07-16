@@ -10,8 +10,8 @@ FirebaseConfig config;
 const char* ssid = "Nha Tro Vui Ve";
 const char* password = "66668888";
 
-#define Firebase_Host  "esp32-with-light-default-rtdb.firebaseio.com/"
-#define Firebase_Auth  "ex4GKoswbBLYjc0rtc4bWe5iZ5DZb9JBqkhI3F8Q"
+#define Firebase_Host  "fir-with-sensor-light-default-rtdb.firebaseio.com/"
+#define Firebase_Auth  "Ol77jhIXlTxjaAjCjDP9fRlDUPAGs7E46iGnknGe"
 
 
 // tham số nhận giá trị từ firebase
