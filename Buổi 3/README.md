@@ -55,7 +55,7 @@
 			digitalWrite(led, fbData.intData());
 			delay(1000);
 		 }
-- Tạo 1 trang web bằng stackblitz
+
 # B. Tài liệu tham khảo
 - Lấy dữ liều từ firebase và đọc trên esp
 https://khuenguyencreator.com/giao-tiep-voi-realtime-database-firebase-su-dung-esp32-va-app/
