@@ -1,23 +1,28 @@
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/14.10.1/firebase-app.js";
-import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/14.10.1/firebase-database.js";
 
-// Firebase configuration
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyByGcDDiA7RLBrIbcnQWd_lkKad0uaHR7U",
-    authDomain: "fir-with-sensor-light.firebaseapp.com",
-    databaseURL: "https://fir-with-sensor-light-default-rtdb.firebaseio.com",
-    projectId: "fir-with-sensor-light",
-    storageBucket: "fir-with-sensor-light.firebasestorage.app",
-    messagingSenderId: "690578878513",
-    appId: "1:690578878513:web:0bbc8ed9c0f3b514122510"
+  apiKey: "AIzaSyByGcDDiA7RLBrIbcnQWd_lkKad0uaHR7U",
+  authDomain: "fir-with-sensor-light.firebaseapp.com",
+  databaseURL: "https://fir-with-sensor-light-default-rtdb.firebaseio.com",
+  projectId: "fir-with-sensor-light",
+  storageBucket: "fir-with-sensor-light.firebasestorage.app",
+  messagingSenderId: "690578878513",
+  appId: "1:690578878513:web:4af1d66b708dfc57122510",
+  measurementId: "G-1Y02ELZZ58"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-// Get a reference to the database
-const database = getDatabase(app);
+const analytics = getAnalytics(app);
 
 // Database Paths
 const dataFloatPath = 'test/float';
