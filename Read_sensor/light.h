@@ -8,7 +8,8 @@ extern int value_of_sensor;
 class light {
   public:
  static void read_light_sensor();
-  static void start_led();
+  static void start_led(const int& value_of_sensor,  int& check);
+  static void firebase_sensor();
 };
 
 #endif

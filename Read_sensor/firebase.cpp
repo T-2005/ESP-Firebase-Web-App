@@ -3,6 +3,7 @@
 #include <WiFi.h>
 #include <pin.h>
 #include <tft.h>
+#include <light.h>
 
 FirebaseData fbData;
 FirebaseAuth auth;
@@ -16,12 +17,14 @@ const char* password = "66668888";
 
 
 // tham số nhận giá trị từ firebase
-int data5base;
-
+String data5base;
+int value_of_firebase;
+int check1 = 0;
 // valiable to firebase from esp32
 const char* name_int = "/value_of_sensor_light";
 const char* name_day = "/day";
 const char* value_led = "test/control";
+const char* state = "test/state";
 // kết nối Wifi
 void firebase :: wifi_connection() // setup
 {
@@ -44,15 +47,27 @@ void firebase :: connection_firebase() // setup
 }
 
 // lấy dữ liệu từ Firebase về Esp32
+void firebase :: read_firebase()
+{
+    Firebase.getInt(fbData, value_led);
+    value_of_firebase = fbData.intData();
+   
+    Firebase.getString(fbData, state);
+    data5base = fbData.stringData(); // lấy trạng thái của firebase
+     
+}
+
 void firebase :: control_led()
  {
-    Firebase.getInt(fbData, value_led);
-    display::day(fbData.intData());
-    display::clear();
+  Serial.print("value_of_firebase: ");
+  Serial.println(value_of_firebase + 1);
+   light :: start_led(value_of_firebase, check1); // hàm xóa kí tự trên oled
+  display::day(value_of_firebase); // hiển thị lên oled
+   
     Serial.print("Gia tri trong firebase: ");
-    Serial.println(fbData.intData() );
-    digitalWrite(Led, fbData.intData());
-    delay(1000);
+    Serial.println(value_of_firebase );
+    digitalWrite(Led, value_of_firebase);
+    //delay(1000);
  }
 
 // đẩy data từ esp32 lên firebase

@@ -19,17 +19,21 @@ extern const char* password;
 // extern const char* Firebase_Host;
 // extern const char* Firebase_Auth;
 // biến hứng
-extern int data5base;
+extern String data5base;
+extern int value_of_firebase;
+extern int check1;
 // biến thay đổi data
 extern const char* name_int;
 extern const char* name_day;
 extern const char* value_led;
+extern const char* state;
 class firebase {
   public:
   static void wifi_connection();
   static void connection_firebase();
    static void control_led();
   static void get_to_firebase_from_esp(const int& value); 
+  static void read_firebase();
 };
 
 

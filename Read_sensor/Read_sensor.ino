@@ -12,9 +12,21 @@ void setup() {
 }
 
 void loop() {
-   //light::read_light_sensor(); // hàm điều khiển led bằng cảm biến ánh sáng
-    firebase::control_led(); // hàm điều khiển led bằng firebase
- 
-  //firebase::get_to_firebase_from_esp(value_of_sensor); //hàm đọc giá trị từ esp lên firebase
+ firebase :: read_firebase();
+   if(String(data5base) == "On")
+  {
+    Serial.println(data5base);
+     firebase::control_led(); // hàm điều khiển led bằng firebase
+   
+ }
+   else if(String(data5base) == "Off")
+   {
+    Serial.println(data5base);
+    light::read_light_sensor(); // hàm điều khiển led bằng cảm biến ánh sáng
+    
+ }
+   
+  
+ // firebase::get_to_firebase_from_esp(value_of_sensor); //hàm đọc giá trị từ esp lên firebase
  
 }
