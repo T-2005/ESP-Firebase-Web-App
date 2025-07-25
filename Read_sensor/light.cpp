@@ -15,10 +15,10 @@ void light :: read_light_sensor()
 
 void light:: start_led()
 {
-  if(value_of_sensor == 1) // kiem tra neu button bat thi doi 20ms
+  if(value_of_sensor == 1) // kiem tra neu sensor bat thi doi 20ms
      {
        delay(20);      
-         if(value_of_sensor == 1) // neu button bat thi kiem tra bien check
+         if(value_of_sensor == 1) // neu sensor bat thi kiem tra bien check
          {
              if(check == 0) // neu check = 0 -> gan bien check = 1 va den sang
              {
@@ -28,12 +28,12 @@ void light:: start_led()
              
          } 
          }
-       while(value_of_sensor == 1); // vong lap vo han cho den khi nut nhan dc nhan 1 lan nua
+       while(value_of_sensor == 1); // vòng lặp vô hạn cho đến khi sensor nhận được tín hiệu mới
 
-    if(value_of_sensor == 0) // kiem tra neu button bat thi doi 20ms
+    if(value_of_sensor == 0) // kiem tra neu sensor bat thi doi 20ms
      {
        delay(20);      
-         if(value_of_sensor == 0) // neu button bat thi kiem tra bien check
+         if(value_of_sensor == 0) // neu sensor bat thi kiem tra bien check
          {
              if(check == 1) // neu check = 0 -> gan bien check = 1 va den sang
              {
@@ -43,5 +43,4 @@ void light:: start_led()
              
             } 
          }
-       while(value_of_sensor == 0); // vong lap vo han cho den khi nut nhan dc nhan 1 lan nua
-}
+       while(value_of_sensor == 0); // vòng lặp vô hạn cho đến khi sensor nhận được tín hiệu mới
