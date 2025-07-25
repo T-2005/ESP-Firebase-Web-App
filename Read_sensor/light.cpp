@@ -1,6 +1,7 @@
 #include "light.h"
 #include "pin.h"
 #include "tft.h"
+
 int value_of_sensor = 0;
 int check = 0;
 void light :: read_light_sensor()
@@ -9,6 +10,7 @@ void light :: read_light_sensor()
   Serial.println(value_of_sensor);
   delay(300);
   digitalWrite(Led, value_of_sensor);
+  display::day(check); // hiển thị trên màn oled
 }
 
 void light:: start_led()
@@ -21,7 +23,7 @@ void light:: start_led()
              if(check == 0) // neu check = 0 -> gan bien check = 1 va den sang
              {
                check = 1;   
-                     display::clear();      
+                display::clear();      
                }       
              
          } 
@@ -39,7 +41,7 @@ void light:: start_led()
                  display::clear();             
                }       
              
-         } 
+            } 
          }
        while(value_of_sensor == 0); // vong lap vo han cho den khi nut nhan dc nhan 1 lan nua
 }

@@ -14,7 +14,7 @@ extern int TFT_DC;
 class display{
   public:
   static void hien_thi();
-  static void day();
+  static void day(const int& check);
   static void clear();
 };
 #endif

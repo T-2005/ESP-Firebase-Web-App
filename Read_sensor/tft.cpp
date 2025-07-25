@@ -14,7 +14,7 @@ void display ::hien_thi() {
   tft.setRotation(0);
   tft.fillScreen(ST7735_BLACK);
 }
-void display ::day() {
+void display ::day(const int& check) {
 
   light::start_led();
   tft.setCursor(0, 90);

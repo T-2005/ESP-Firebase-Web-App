@@ -12,7 +12,9 @@ void setup() {
 }
 
 void loop() {
-   light::read_light_sensor();
-   display::day();
-  firebase::get_to_firebase_from_esp(value_of_sensor);
+   //light::read_light_sensor(); // hàm điều khiển led bằng cảm biến ánh sáng
+    firebase::control_led(); // hàm điều khiển led bằng firebase
+ 
+  //firebase::get_to_firebase_from_esp(value_of_sensor); //hàm đọc giá trị từ esp lên firebase
+ 
 }

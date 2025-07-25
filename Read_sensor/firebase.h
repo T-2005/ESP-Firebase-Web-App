@@ -23,12 +23,14 @@ extern int data5base;
 // biến thay đổi data
 extern const char* name_int;
 extern const char* name_day;
+extern const char* value_led;
 class firebase {
   public:
   static void wifi_connection();
   static void connection_firebase();
-   static void get_to_esp_from_firebase();
+   static void control_led();
   static void get_to_firebase_from_esp(const int& value); 
 };
+
 
 #endif 

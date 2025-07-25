@@ -1,7 +1,8 @@
 #include "firebase.h"
 #include <FirebaseESP32.h> // library of firebaseESP32
 #include <WiFi.h>
-
+#include <pin.h>
+#include <tft.h>
 
 FirebaseData fbData;
 FirebaseAuth auth;
@@ -20,7 +21,7 @@ int data5base;
 // valiable to firebase from esp32
 const char* name_int = "/value_of_sensor_light";
 const char* name_day = "/day";
-
+const char* value_led = "test/control";
 // kết nối Wifi
 void firebase :: wifi_connection() // setup
 {
@@ -43,21 +44,16 @@ void firebase :: connection_firebase() // setup
 }
 
 // lấy dữ liệu từ Firebase về Esp32
-// void firebase :: get_to_esp_from_firebase() // loop
-// {
-//    // lấy giá trị kiểu int ở trường esp32
-//    Firebase.getInt(fbData, "/esp32");
-//    // hứng giá trị
-//    data5base = fbData.intData();
-//    {
-//      Serial.println("data in /esp32 is: ");
-//      Serial.println(data5base);
-//      delay(1000);
-//    }
-//    Firebase.setString(fbData, truongthaydoi, "tuan");
-//    Serial.println("set data done !");
-//    delay(500);
-//  }
+void firebase :: control_led()
+ {
+    Firebase.getInt(fbData, value_led);
+    display::day(fbData.intData());
+    display::clear();
+    Serial.print("Gia tri trong firebase: ");
+    Serial.println(fbData.intData() );
+    digitalWrite(Led, fbData.intData());
+    delay(1000);
+ }
 
 // đẩy data từ esp32 lên firebase
 void firebase :: get_to_firebase_from_esp(const int& value)
