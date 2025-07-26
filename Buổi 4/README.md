@@ -5,7 +5,7 @@
 
 # A. Công việc đã làm 
 
-
+## 0. Video demo: 
 ## 1. Sơ đồ khối và nguyên lý hoạt động
 ### a. Sơ đồ khối
 ![alt](sodokhoi.png)
@@ -29,4 +29,17 @@ G2		|					|	DC	|		|
 G5		|					|	CS	|		|
 3v3		|					|	BLK	|		|
 G26		|					|		|	+	|
+
+## 3. Tính năng
+- Đọc giá trị cảm biến ánh sáng
+- Điều khiển led bằng cảm biến ánh sáng
+- Gửi dữ liệu từ esp32 lên Firebase
+- Hiện thị lên màn Oled
+- Điều khiển led bằng Realtime Database
+- Điều khiển led bằng cả firebase và cảm biến ánh sáng 
+
+## 4. Code
+
+
+
 
