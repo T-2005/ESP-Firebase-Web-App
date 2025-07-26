@@ -22,11 +22,8 @@ void loop() {
    else if(String(data5base) == "Off")
    {
     Serial.println(data5base);
-    light::read_light_sensor(); // hàm điều khiển led bằng cảm biến ánh sáng
-    
+    light::led_sensor(); // hàm điều khiển led bằng cảm biến ánh sáng
+    firebase::get_to_firebase_from_esp(value_of_sensor); //hàm đọc giá trị từ esp lên firebase
  }
    
-  
- // firebase::get_to_firebase_from_esp(value_of_sensor); //hàm đọc giá trị từ esp lên firebase
- 
 }

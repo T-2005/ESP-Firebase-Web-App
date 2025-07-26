@@ -1,6 +1,6 @@
 # ESP-Firebase-Web-App - LÊ NGỌC TUẤN
 
-0. Đề tài 3: Đọc cảm biến ánh sáng để điều khiển bật tắt led (cập nhật giá trị lên Firebase),
+Đề tài 3: Đọc cảm biến ánh sáng để điều khiển bật tắt led (cập nhật giá trị lên Firebase),
 điều khiển led bằng Firebase web
 
 # A. Công việc đã làm 
@@ -29,4 +29,4 @@ G2		|					|	DC	|		|
 G5		|					|	CS	|		|
 3v3		|					|	BLK	|		|
 G26		|					|		|	+	|
---------|-------------------|-------|-------|
+

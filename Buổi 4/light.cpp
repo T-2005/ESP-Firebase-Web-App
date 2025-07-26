@@ -1,3 +1,9 @@
+/*
+    File: Đọc cảm biến ánh sáng, điều khiển led bằng tín hiệu từ cảm biến ánh sáng và kiểm tra trạng thái của led
+    Mục đích: Quản lý các hàm liên quan đến cảm biến ánh sáng và led
+    Chú ý: Khi lập trình thì khởi tạo hàm này trong file "function_main.ino"
+*/
+
 #include "light.h"
 #include "pin.h"
 #include "tft.h"
@@ -10,9 +16,9 @@ int check = 0;
 void light :: led_sensor()
 {
   light :: read_light_sensor();
-  light :: on_off_led(value_of_sensor);
+  light :: on_off_led();
   light :: check_and_clear_oled(value_of_sensor, check);
-  display::state_of_device(check); // hiển thị trên màn oled
+  display::day(check); // hiển thị trên màn oled
 }
 
 void light :: read_light_sensor() // đọc cảm biến ánh sáng

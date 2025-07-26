@@ -59,11 +59,8 @@ void firebase :: read_firebase()
 
 void firebase :: control_led()
  {
-  Serial.print("value_of_firebase: ");
-  Serial.println(value_of_firebase + 1);
-   light :: start_led(value_of_firebase, check1); // hàm xóa kí tự trên oled
-  display::day(value_of_firebase); // hiển thị lên oled
-   
+   light :: check_and_clear_oled(value_of_firebase, check1); // hàm xóa kí tự trên oled
+   display::state_of_device(value_of_firebase); // hiển thị lên oled  
     Serial.print("Gia tri trong firebase: ");
     Serial.println(value_of_firebase );
     digitalWrite(Led, value_of_firebase);
@@ -71,10 +68,10 @@ void firebase :: control_led()
  }
 
 // đẩy data từ esp32 lên firebase
-void firebase :: get_to_firebase_from_esp(const int& value)
+void firebase :: get_to_firebase_from_esp(const int& value_of_thing)
 {
-   Firebase.setInt(fbData, name_int, value);
-   if(value == 0) Firebase.setString(fbData,name_day, "Chao buoi sang!");
+   Firebase.setInt(fbData, name_int, value_of_thing); // // đẩy dữ liệu từ esp32 lên firebase dạng số nguyên lấy từ biến "value_of_thing"
+   if(value_of_thing == 0) Firebase.setString(fbData,name_day, "Chao buoi sang!");
    else Firebase.setString(fbData,name_day, "Chao buoi toi!");
     
   Serial.println("Push data to /esp done !");

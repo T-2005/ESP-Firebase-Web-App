@@ -6,6 +6,10 @@
 extern int D0;
 extern int Led;
 
+extern int TFT_CS;
+extern int TFT_RST;
+extern int TFT_DC;
+
 class pin {
   public:
   static void init();
