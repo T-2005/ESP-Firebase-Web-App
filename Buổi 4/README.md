@@ -39,7 +39,7 @@ G26		|					|		|	+	|
 - Điều khiển led bằng cả firebase và cảm biến ánh sáng 
 
 ## 4. Code
-
+- Các file phía trên
 
 
 

@@ -12,7 +12,7 @@
 class display{
   public:
   static void hien_thi(); // hàm setup màu và kiểu hiện thị trên oled
-  static void state_of_device(const int& value); 
-  static void clear();
+  static void state_of_device(const int& value); // hàm hiển thị trạng thái của module
+  static void clear(); // hàm xóa kí tự
 };
 #endif

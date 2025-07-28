@@ -16,7 +16,7 @@ FirebaseConfig config; // khai báo biến config để cấu hình firebase
 // lấy link theo hướng dẫn tại: https://github.com/T-2005/ESP-Firebase-Web-App/tree/main/Bu%E1%BB%95i%202
 #define Firebase_Host  "fir-with-sensor-light-default-rtdb.firebaseio.com/"
 #define Firebase_Auth  "Ol77jhIXlTxjaAjCjDP9fRlDUPAGs7E46iGnknGe"
-void firebase_connection()
+void firebase :: firebase_connection()
 {
   config.host = Firebase_Host ; // link realtime database
   config.signer.tokens.legacy_token = Firebase_Auth; // xác thực người dùng

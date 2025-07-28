@@ -31,7 +31,7 @@ class firebase {
   static void wifi_connection(); // kết nối wifi
   static void connection_firebase(); // kết nối vơi firebase
   static void control_led(); // điều khiển led từ firebase
-  static void get_to_firebase_from_esp(const int& value_of_thing); 
+  static void get_to_firebase_from_esp(const int& value_of_thing); // hàm đọc và gửi giá trị từ esp lên firebase
   static void read_firebase(); // hàm đọc data trên firebase
 };
 

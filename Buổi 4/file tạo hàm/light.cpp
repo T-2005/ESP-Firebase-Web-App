@@ -18,7 +18,7 @@ void light :: led_sensor()
   light :: read_light_sensor();
   light :: on_off_led();
   light :: check_and_clear_oled(value_of_sensor, check);
-  display::day(check); // hiển thị trên màn oled
+  display::state_of_device(check); // hiển thị trên màn oled
 }
 
 void light :: read_light_sensor() // đọc cảm biến ánh sáng

@@ -1,6 +1,6 @@
 /*
 	File:  Kết nối Esp32 với Wifi
-  Chú ý: Khi lập trình thì khởi tạo hàm này trong file "firebase_esp.cpp"
+    Chú ý: Khi lập trình thì khởi tạo hàm này trong file "firebase_esp.cpp"
     Mục đích: Kết nối Esp32 với Wifi và Firebase và sử dụng các hàm khác
 */
 #include<Arduino.h>
@@ -9,7 +9,7 @@
 const char* ssid = "Wifi_name";
 const char* password = "wifi_password";
 
-void firebase :: wifi_connection() // Nằm trong hàm setup
+void wifi_connection() // Nằm trong hàm setup
 {
   WiFi.begin(ssid, password);
   // Chờ cho đến khi kết nối wifi thành công
