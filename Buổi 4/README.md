@@ -5,7 +5,7 @@
 
 # A. Công việc đã làm 
 
-## 0. Video demo: 
+## 0. Video demo: https://youtube.com/shorts/ilBtpRJlL7w?feature=share
 ## 1. Sơ đồ khối và nguyên lý hoạt động
 ### a. Sơ đồ khối
 ![alt](sodokhoi.png)
