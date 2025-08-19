@@ -30,6 +30,17 @@ G5		|					|	CS	|		|
 3v3		|					|	BLK	|		|
 G26		|					|		|	+	|
 
+## 4. Linh kiện cần dùng 
+- Esp32 38 chân 
+![alt](Esp32.png)
+- Oled TFT 1.8 inch, kich thước: 128x160
+![alt](OLED.jpg)
+- Cảm biến ánh sáng chip LM393
+![alt](LM393.jpg)
+- Led + trở 220ohm
+![alt](led.jpeg)
+- Dây cắm
+- Board cắm 
 ## 4. Tính năng
 - Đọc giá trị cảm biến ánh sáng
 - Điều khiển led bằng cảm biến ánh sáng
@@ -39,115 +50,27 @@ G26		|					|		|	+	|
 - Điều khiển led bằng cả firebase và cảm biến ánh sáng 
 
 ## 5. Code
-### a. Kết nối Firebase với esp
-- File.h	
+### a. Kết nối Firebase, Wifi với esp
+- File "Firebase.cpp" dùng để kết nối Esp32 với Firebase
+- File "firebase_esp.cpp" dùng để tạo các hàm liên quan đến firebase gồm đọc data từ firebase, điều khiển led từ firebase, đẩy data từ esp lên firebase
+- File "Wifi.cpp" dùng để kết nối esp32 với wifi 
+- File "firebase.h" dùng để khai báo hàm và biến cần dùng cho esp và firebase 
+### b. Điều khiển led
+- File "light.cpp" đọc cảm biến ánh sáng, điều khiển led bằng tín hiệu từ cảm biến ánh sáng và kiểm tra trạng thái của led
+- File "light.h" khai báo hàm và biến sử dụng cho file"light.cpp"
+### c. Khai báo chân
+- File "pin.cpp" khai báo chân các linh kiện kết nối với Esp32
+- File "pin.h" khai báo hàm và biến 
+### d. Hiển thị data lên màn oled tft
+- File "tft.cpp" Khởi tạo các hàm khởi tạo màn hiện thị Oled, hiển thị trạng thái của thiết bị, hàm xóa trên oled
+- File "tft.h" khai báo hàm và biến
+
+# B. Mô tả sản phẩm
+- Dự án hoạt động bao gồm 1 trang Firebase hoạt động online và esp32 đã liên kết vs Firebase và Wifi.
+- Trong Firebase có các từ điều khiển như hình bên dưới: 
+![alt](realtimedatabase.png)
++ "day": hiển thị ban ngày hay ban đêm dựa vào led bật hay tắt. Led bật -> "buổi tối", Led tắt -> "buổi sáng"
++ " test/control" điều khiển led
++ "test/state" : điều khiển cách hoạt động của cảm biến ánh sáng. Nếu state = "On" thì bật cảm biến ánh sáng, state "Off" thì cảm biến ánh sáng tắt
++ "value_of_sensor_light" giá trị trả về của cảm biến ánh sáng khi state = "On" 	
 	
-		#ifndef firebase_H
-		#define firebase_H
-		#include <Arduino.h>
-		#include <WiFi.h>
-		#include <FirebaseESP32.h> // library of firebaseESP32
-
-		// khởi tạo biến toàn cục cho firebase
-		extern FirebaseData fbData;
-		extern FirebaseAuth auth;
-		extern FirebaseConfig config;
-
-		// khởi tạo biến cho Wifi
-		extern const char* ssid;
-		extern const char* password;
-
-		// khởi tạo biến
-		extern String data5base;
-		extern int value_of_firebase;
-		extern int check1;
-		// biến thay đổi data
-		extern const char* name_int;
-		extern const char* name_day;
-		extern const char* value_led;
-		extern const char* state;
-
-		class firebase {
-		  public:
-		  static void wifi_connection(); // kết nối wifi
-		  static void connection_firebase(); // kết nối vơi firebase
-		  static void control_led(); // điều khiển led từ firebase
-		  static void get_to_firebase_from_esp(const int& value_of_thing); // hàm đọc và gửi giá trị từ esp lên firebase
-		  static void read_firebase(); // hàm đọc data trên firebase
-		};
-		#endif 
-- File.cpp
-			
-			/*
-			File: Kết nối Esp32 với firebase
-			Chú ý: Khi lập trình thì khởi tạo hàm này trong file "firebase_esp.cpp"
-			Mục đích: Kết nối Esp32 với Wifi và Firebase và sử dụng các hàm khác
-			*/
-
-			#include <Arduino.h>
-			#include "firebase.h" // thư viện tự khởi tạo để quản lý các hàm liên quan đến firebase
-			#include <FirebaseESP32.h> // thư viên của firebase kết nối esp32
-			#include <WiFi.h> // thư viện kết nối wifi
-			#include <pin.h> // thư viện để khai báo các chân kết nối
-			#include <tft.h> // thư viện để hiện thị lên oled
-			#include <light.h> // thư viện để điều khiển led
-			
-			FirebaseData fbData; // khai báo biến fbData để lấy dữ liệu từ firebase
-			FirebaseAuth auth; // khai báo biến auth để xác thực người dùng
-			FirebaseConfig config; // khai báo biến config để cấu hình firebase
-
-			// lấy link theo hướng dẫn tại: https://github.com/T-2005/ESP-Firebase-Web-App/tree/main/Bu%E1%BB%95i%202
-			#define Firebase_Host  "fir-with-sensor-light-default-rtdb.firebaseio.com/"
-			#define Firebase_Auth  "Ol77jhIXlTxjaAjCjDP9fRlDUPAGs7E46iGnknGe"
-			void firebase :: firebase_connection()
-			{
-			  config.host = Firebase_Host ; // link realtime database
-			  config.signer.tokens.legacy_token = Firebase_Auth; // xác thực người dùng
-			  Firebase.begin(&config, &auth); // Khởi tạo firebase với config và auth
-			  Firebase.reconnectWiFi(true); // tự động kết nối lại wifi khi mất kết nối
-			}
-			
-			/*
-			  File: Tạo các hàm liên quan đến firebase gồm đọc data từ firebase, điều khiển led từ firebase, đẩy data từ esp32 lên firebase
-			  Mục đích: Quản lý các hàm liên quan đến firebase
-			  Chú ý: Khi lập trình thì khởi tạo hàm này trong file "firebase_esp.cpp"
-			*/
-
-
-			// khai báo tên biến trong firebase
-			const char* name_int = "/value_of_sensor_light"; 
-			const char* name_day = "/day";
-			const char* value_led = "test/control";
-			const char* state = "test/state";
-			// khai báo tên biến trong firebase
-
-			String data5base; // biến dùng để lưu trữ dữ liệu từ firebase dạng chuỗi
-			int value_of_firebase; // Biến dùng để lưu trữ dữ liệu từ firebase dạng số nguyên 
-			int check1 = 0; // biến dùng để kiểm tra trạng thái của led dùng để xóa kí tự trên oled
-
-			void firebase :: read_firebase() // đocj dữ liệu từ firebase
-			{
-				Firebase.getInt(fbData, value_led); // lấy dữ liệu từ firebase dạng số nguyên
-				value_of_firebase = fbData.intData(); 
-				Firebase.getString(fbData, state); // lấy dữ liệu từ firebase dạng chuỗi
-				data5base = fbData.stringData(); 
-			}
-
-			void firebase :: control_led() // điều khiển led từ firebase
-			 { 
-				light :: check_and_clear_oled(value_of_firebase, check1); // hàm xóa kí tự trên oled
-				display::day(value_of_firebase); // hiển thị lên oled  
-				light :: on_off_led(value_of_firebase); // bất tắt led theo firebase
-			 }
-
-			void firebase :: get_to_firebase_from_esp(const int& value_of_thing) // đẩy data từ esp32 lên firebase
-			{
-			   Firebase.setInt(fbData, name_int, value_of_thing); // đẩy dữ liệu từ esp32 lên firebase dạng số nguyên
-			   if(value_of_thing == 0) Firebase.setString(fbData,name_day, "Chao buoi sang!");
-			   else Firebase.setString(fbData,name_day, "Chao buoi toi!");   
-			   Serial.println("Push data to /esp done !");
-			   delay(500);
-			 }
-
-
-
