@@ -5,7 +5,7 @@
 */
 #include<Arduino.h>
 #include <Wifi.h>
-
+#include "firebase.h"
 const char* ssid = "Wifi_name";
 const char* password = "wifi_password";
 

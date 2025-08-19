@@ -5,8 +5,7 @@
 */
 
 #include "firebase.h" // thư viện tự khởi tạo để quản lý các hàm liên quan đến firebase
-#include <FirebaseESP32.h> // thư viên của firebase kết nối esp32
-#include <WiFi.h> // thư viện kết nối wifi
+
 #include <pin.h> // thư viện để khai báo các chân kết nối
 #include <tft.h> // thư viện để hiện thị lên oled
 #include <light.h> // thư viện để điều khiển led

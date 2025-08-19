@@ -7,7 +7,7 @@
 
 #include <Arduino.h>
 #include <FirebaseESP32.h> // library of firebaseESP32
-
+#include "firebase.h"
 
 FirebaseData fbData; // khai báo biến fbData để lấy dữ liệu từ firebase
 FirebaseAuth auth; // khai báo biến auth để xác thực người dùng
