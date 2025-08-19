@@ -41,7 +41,7 @@ G26		|					|		|	+	|
 ![alt](led.jpeg)
 - Dây cắm
 - Board cắm 
-## 4. Tính năng
+## 5. Tính năng
 - Đọc giá trị cảm biến ánh sáng
 - Điều khiển led bằng cảm biến ánh sáng
 - Gửi dữ liệu từ esp32 lên Firebase
@@ -49,7 +49,7 @@ G26		|					|		|	+	|
 - Điều khiển led bằng Realtime Database
 - Điều khiển led bằng cả firebase và cảm biến ánh sáng 
 
-## 5. Code
+## 6. Code
 ### a. Kết nối Firebase, Wifi với esp
 - File "Firebase.cpp" dùng để kết nối Esp32 với Firebase
 - File "firebase_esp.cpp" dùng để tạo các hàm liên quan đến firebase gồm đọc data từ firebase, điều khiển led từ firebase, đẩy data từ esp lên firebase
@@ -71,6 +71,10 @@ G26		|					|		|	+	|
 ![alt](realtimedatabase.png)
 + "day": hiển thị ban ngày hay ban đêm dựa vào led bật hay tắt. Led bật -> "buổi tối", Led tắt -> "buổi sáng"
 + " test/control" điều khiển led
-+ "test/state" : điều khiển cách hoạt động của cảm biến ánh sáng. Nếu state = "On" thì bật cảm biến ánh sáng, state "Off" thì cảm biến ánh sáng tắt
++ "test/state" : điều khiển cách hoạt động của cảm biến ánh sáng. Nếu state = "On" thì bật cảm biến ánh sáng và led hoạt động theo cảm biến ánh sáng,
+state "Off" thì led sẽ hoạt động vào biến control trên Firebase
 + "value_of_sensor_light" giá trị trả về của cảm biến ánh sáng khi state = "On" 	
-	
+# C. Khó khăn gặp phải
+- Không
+# D. Linh kiện đang cầm của CLB
+- Không	
